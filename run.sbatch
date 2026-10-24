@@ -13,4 +13,5 @@
 hostname
 cat /proc/cpuinfo
 
-singularity run "docker://ghcr.io/natcap/devstack:2025-07-01" python test-script.py
+# DEM is in James' user directory on Oak.
+singularity run "docker://ghcr.io/natcap/devstack:2025-07-01" python test-script.py aligned_dem_TFA1000.tif
