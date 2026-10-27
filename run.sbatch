@@ -14,4 +14,7 @@ hostname
 cat /proc/cpuinfo
 
 # DEM is in James' user directory on Oak.
-singularity run "docker://ghcr.io/natcap/devstack:2025-07-01" python test-script.py aligned_dem_TFA1000.tif
+# --cleanenv overrides all my environment variables - prevents leakage into the container's runtime
+#   This also prevents a problem I encoutered where my $HOME directory had a local install of
+#   pygeoprocessing that the container was trying to import.
+singularity run --cleanenv "docker://ghcr.io/natcap/devstack:2025-07-01" python test-script.py aligned_dem_TFA1000.tif
