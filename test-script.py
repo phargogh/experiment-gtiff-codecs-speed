@@ -47,6 +47,7 @@ def _process(input_dem, workspace, codec, predictor):
             (flow_dir, 1), flow_accum, raster_driver_creation_tuple=creation_tuple
         )
 
+# predictor 3, which can be used with LZW and ZSTD codecs, can only be used on float rasters.
 for CODEC, PREDICTORS in [['ZSTD', [1, 3]], ['LZW', [1, 3]], ['NONE', [1]]]:
     for PREDICTOR in PREDICTORS:
         WORKSPACE = f'workspace-dem-codec-test-{CODEC}-{PREDICTOR}'
