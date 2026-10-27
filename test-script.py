@@ -7,8 +7,15 @@ import time
 import pygeoprocessing.routing
 from osgeo import gdal
 
+# Log format copied from InVEST sample script.
+LOG_FMT = (
+    "%(asctime)s "
+    "(%(name)s) "
+    "%(module)s.%(funcName)s(%(lineno)d) "
+    "%(levelname)s %(message)s")
 gdal.SetCacheMax(2048)  # MB
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(
+    level=logging.INFO, format=LOG_FMT, datefmt='%m/%d/%Y %H:%M:%S ')
 LOGGER = logging.getLogger(__name__)
 
 DEM = sys.argv[1]
