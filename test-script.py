@@ -49,7 +49,7 @@ def _process(input_dem, workspace, codec, predictor):
 
 for CODEC, PREDICTORS in [['ZSTD', [1, 3]], ['LZW', [1, 3]], ['NONE', [1]]]:
     for PREDICTOR in PREDICTORS:
-        WORKSPACE = 'workspace-dem-codec-test-{CODEC}-{PREDICTOR}'
+        WORKSPACE = f'workspace-dem-codec-test-{CODEC}-{PREDICTOR}'
         start_time = time.time()
         with _time(f"Processing {CODEC} {PREDICTOR} - {WORKSPACE}"):
             _process(DEM, WORKSPACE, CODEC, PREDICTOR)
