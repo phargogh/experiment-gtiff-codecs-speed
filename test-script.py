@@ -36,7 +36,7 @@ def _process(input_dem, workspace, codec, predictor):
     flow_dir = os.path.join(workspace, f'flow_dir_d8_{suffix}.tif')
     with _time(f"Flow dir {workspace} - {codec} {predictor}"):
         pygeoprocessing.routing.flow_dir_d8(
-            (filled_dem, 1), flow_dir, workind_dir=workspace,
+            (filled_dem, 1), flow_dir, working_dir=workspace,
             raster_driver_creation_tuple=creation_tuple
         )
 
