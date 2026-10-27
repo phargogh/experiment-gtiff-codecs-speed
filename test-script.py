@@ -55,7 +55,9 @@ def _process(input_dem, workspace, codec, predictor):
         )
 
 # predictor 3, which can be used with LZW and ZSTD codecs, can only be used on float rasters.
-for CODEC, PREDICTORS in [['ZSTD', [1, 3]], ['LZW', [1, 3]], ['NONE', [1]]]:
+# Some of the intermediate rasters are expected to be ints, yet the gtiff creation options
+# must apply to all rasters.
+for CODEC, PREDICTORS in [['ZSTD', [1]], ['LZW', [1]], ['NONE', [1]]]:
     for PREDICTOR in PREDICTORS:
         WORKSPACE = f'workspace-dem-codec-test-{CODEC}-{PREDICTOR}'
         start_time = time.time()
